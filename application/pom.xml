@@ -80,6 +80,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.example.application</groupId>
+            <artifactId>library</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>dev.hilla</groupId>
             <artifactId>hilla</artifactId>
         </dependency>
