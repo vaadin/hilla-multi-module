@@ -155,6 +155,13 @@
                 <groupId>dev.hilla</groupId>
                 <artifactId>hilla-maven-plugin</artifactId>
                 <version>${hilla.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>dev.hilla</groupId>
+                        <artifactId>parser-jvm-plugin-nonnull</artifactId>
+                        <version>1.2.2</version>
+                    </dependency>
+                </dependencies>
                 <executions>
                     <execution>
                         <goals>
@@ -162,6 +169,31 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <parser>
+                        <plugins>
+                            <use>
+                                <plugin>
+                                    <name>dev.hilla.parser.plugins.nonnull.NonnullPlugin</name>
+                                    <configuration implementation="dev.hilla.parser.plugins.nonnull.NonnullPluginConfig">
+                                        <use>
+                                            <annotation>
+                                                <name>com.example.application.annotations.NeverNull</name>
+                                                <makesNullable>false</makesNullable>
+                                                <score>50</score>
+                                            </annotation>
+                                        </use>
+                                    </configuration>
+                                </plugin>
+                            </use>
+                            <disable>
+                                <plugin>
+                                    <name>dev.hilla.parser.plugins.nonnull.NonnullPlugin</name>
+                                </plugin>
+                            </disable>
+                        </plugins>
+                    </parser>
+                </configuration>
             </plugin>
         </plugins>
     </build>
