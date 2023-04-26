@@ -11,13 +11,13 @@
 
     <properties>
         <java.version>17</java.version>
-        <hilla.version>2.0.0.alpha2</hilla.version>
+        <hilla.version>2.0.4</hilla.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0-RC1</version>
+        <version>3.0.6</version>
         <relativePath/>
     </parent>
 
@@ -178,7 +178,10 @@
                 </executions>
                 <configuration>
                     <parser>
-                        <plugins>
+                        <packages>
+                            <package>com.example.application</package>
+                        </packages>
+                        <!-- <plugins>
                             <use>
                                 <plugin>
                                     <name>dev.hilla.parser.plugins.nonnull.NonnullPlugin</name>
@@ -198,7 +201,7 @@
                                     <name>dev.hilla.parser.plugins.nonnull.NonnullPlugin</name>
                                 </plugin>
                             </disable>
-                        </plugins>
+                        </plugins> -->
                     </parser>
                 </configuration>
             </plugin>
