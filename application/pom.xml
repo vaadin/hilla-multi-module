@@ -11,7 +11,7 @@
 
     <properties>
         <java.version>17</java.version>
-        <hilla.version>2.0.4</hilla.version>
+        <hilla.version>2.0.5</hilla.version>
     </properties>
 
     <parent>
@@ -46,10 +46,6 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-        <repository>
-            <id>spring milestones</id>
-            <url>https://repo.spring.io/milestone</url>
-        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -66,10 +62,6 @@
             <url>
                 https://maven.vaadin.com/vaadin-prereleases/
             </url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring milestones</id>
-            <url>https://repo.spring.io/milestone</url>
         </pluginRepository>
     </pluginRepositories>
 
@@ -162,13 +154,6 @@
                 <groupId>dev.hilla</groupId>
                 <artifactId>hilla-maven-plugin</artifactId>
                 <version>${hilla.version}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>dev.hilla</groupId>
-                        <artifactId>parser-jvm-plugin-nonnull</artifactId>
-                        <version>1.2.2</version>
-                    </dependency>
-                </dependencies>
                 <executions>
                     <execution>
                         <goals>
@@ -181,27 +166,6 @@
                         <packages>
                             <package>com.example.application</package>
                         </packages>
-                        <!-- <plugins>
-                            <use>
-                                <plugin>
-                                    <name>dev.hilla.parser.plugins.nonnull.NonnullPlugin</name>
-                                    <configuration implementation="dev.hilla.parser.plugins.nonnull.NonnullPluginConfig">
-                                        <use>
-                                            <annotation>
-                                                <name>com.example.application.annotations.NeverNull</name>
-                                                <makesNullable>false</makesNullable>
-                                                <score>50</score>
-                                            </annotation>
-                                        </use>
-                                    </configuration>
-                                </plugin>
-                            </use>
-                            <disable>
-                                <plugin>
-                                    <name>dev.hilla.parser.plugins.nonnull.NonnullPlugin</name>
-                                </plugin>
-                            </disable>
-                        </plugins> -->
                     </parser>
                 </configuration>
             </plugin>
@@ -227,7 +191,11 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <productionMode>true</productionMode>
+                            <parser>
+                                <packages>
+                                    <package>com.example.application</package>
+                                </packages>
+                            </parser>
                         </configuration>
                     </plugin>
                 </plugins>
