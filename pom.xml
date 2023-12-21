@@ -12,6 +12,6 @@
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <hilla.version>2.4.0</hilla.version>
+        <hilla.version>2.5.3</hilla.version>
     </properties>
 </project>
