@@ -11,13 +11,13 @@
 
     <properties>
         <java.version>17</java.version>
-        <hilla.version>2.4.0</hilla.version>
+        <vaadin.version>25.2-SNAPSHOT</vaadin.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.6</version>
+        <version>4.0.3</version>
         <relativePath/>
     </parent>
 
@@ -68,9 +68,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>dev.hilla</groupId>
-                <artifactId>hilla-bom</artifactId>
-                <version>${hilla.version}</version>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-bom</artifactId>
+                <version>${vaadin.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -84,11 +84,19 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>dev.hilla</groupId>
-            <artifactId>hilla</artifactId>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin</artifactId>
         </dependency>
         <dependency>
-            <groupId>dev.hilla</groupId>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-dev</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
             <artifactId>hilla-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
@@ -151,9 +159,9 @@
                 It also creates webpack.config.js if not exists yet.
             -->
             <plugin>
-                <groupId>dev.hilla</groupId>
-                <artifactId>hilla-maven-plugin</artifactId>
-                <version>${hilla.version}</version>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-maven-plugin</artifactId>
+                <version>${vaadin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -161,13 +169,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <parser>
-                        <packages>
-                            <package>com.example.application</package>
-                        </packages>
-                    </parser>
-                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -179,9 +180,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>dev.hilla</groupId>
-                        <artifactId>hilla-maven-plugin</artifactId>
-                        <version>${hilla.version}</version>
+                        <groupId>com.vaadin</groupId>
+                        <artifactId>vaadin-maven-plugin</artifactId>
+                        <version>${vaadin.version}</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -190,13 +191,6 @@
                                 <phase>compile</phase>
                             </execution>
                         </executions>
-                        <configuration>
-                            <parser>
-                                <packages>
-                                    <package>com.example.application</package>
-                                </packages>
-                            </parser>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
