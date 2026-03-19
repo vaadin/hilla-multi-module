@@ -1,15 +1,15 @@
 package com.example.application.endpoints.helloworld;
 
 import com.vaadin.flow.server.auth.AnonymousAllowed;
-import dev.hilla.Endpoint;
-import dev.hilla.Nonnull;
+import com.vaadin.hilla.BrowserCallable;
+import org.jspecify.annotations.NonNull;
 
-@Endpoint
+@BrowserCallable
 @AnonymousAllowed
 public class HelloWorldEndpoint {
 
-    @Nonnull
-    public String sayHello(@Nonnull String name) {
+    @NonNull
+    public String sayHello(@NonNull String name) {
         if (name.isEmpty()) {
             return "Hello stranger";
         } else {
